@@ -1,9 +1,12 @@
 const webpack = require('webpack');
+const webpackMerge = require('webpack-merge');
 const baseConfig = require('./build/webpack.base');
 
-module.exports = (env) => {
-  console.log(env);
-  return baseConfig;
+module.exports = () => {
+  const env = process.env.NODE_ENV;
+  const envConfig = require(`./build/webpack.${env}`);
+
+  return webpackMerge(baseConfig, envConfig);
   // module: {
   //   rules: [
   //     {
@@ -47,7 +50,7 @@ module.exports = (env) => {
   //   hints: false
   // },
   // devtool: '#eval-source-map'
-}
+};
 
 // if (process.env.NODE_ENV === 'production') {
 //   module.exports.devtool = '#source-map'

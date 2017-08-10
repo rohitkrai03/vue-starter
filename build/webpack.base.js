@@ -1,11 +1,12 @@
 const path = require('path');
+const commonPaths = require('./common-paths');
 
 const config = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    filename: 'build.js',
+    path: commonPaths.outputPath,
     publicPath: '/dist/',
-    filename: 'build.js'
   }
 };
 
