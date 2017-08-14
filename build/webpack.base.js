@@ -1,11 +1,14 @@
 const path = require('path');
-const commonPaths = require('./common-paths');
+const config = require('./config');
 
-const config = {
+isProd = process.env.NODE_ENV === 'prod';
+isDev = process.env.NODE_ENV === 'dev';
+
+module.exports = {
   entry: './src/main.js',
   output: {
     filename: 'build.js',
-    path: commonPaths.outputPath,
+    path: isProd ? config.prod.assetsRoot : config.dev.assetsRoot,
     publicPath: '/dist/',
   },
   module: {
@@ -44,5 +47,3 @@ const config = {
     }
   },
 };
-
-module.exports = config;

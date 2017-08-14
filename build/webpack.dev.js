@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
   devtool: '#cheap-module-eval-source-map',
   devServer: {
     historyApiFallback: true,
@@ -6,14 +6,5 @@ const config = {
   },
   performance: {
     hints: false
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"development"'
-      }
-    }),
-  ]
+  }
 };
-
-module.exports = config;
