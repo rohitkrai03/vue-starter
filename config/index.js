@@ -1,4 +1,5 @@
 const merge = require('webpack-merge');
+
 const DEV = 'development';
 const PROD = 'production';
 const env = process.env.NODE_ENV || DEV;
@@ -11,7 +12,7 @@ const defaults = {
   env,
   isProd,
   isDev,
-  appMode
+  appMode,
 };
 
 const baseConfig = require('./config.base');

@@ -18,12 +18,19 @@ module.exports = {
   'settings': {
     'import/resolver': {
       'webpack': {
-        'config': 'build/webpack.base.conf.js'
+        'config': 'webpack.config.js'
       }
     }
   },
   // add your custom rules here
   'rules': {
+    "no-underscore-dangle": [
+      0
+    ],
+    "new-cap": [
+      0
+    ],
+    "semi": [2, "always"],
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       'js': 'never',
@@ -35,5 +42,15 @@ module.exports = {
     }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
-  }
+  },
+  "globals": {
+    "describe": true,
+    "it": true,
+    "expect": true,
+    "window": true,
+    "document": true,
+    "__DEV__": true,
+    "__PROD__": true,
+    "__APP_MODE__": ""
+  },
 };
