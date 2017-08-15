@@ -1,6 +1,7 @@
+const path = require('path');
 const config = require('../config');
 const webpack = require('webpack');
-const eslintFormatter = require('eslint-friendly-formatter');
+const ESlintFormatter = require('eslint-friendly-formatter');
 
 const defaults = {
   __DEV__: JSON.stringify(config.isDev),
@@ -14,7 +15,7 @@ const webpackConfig = {
   output: {
     path: config.assetsRoot,
     publicPath: config.assetsPublicPath,
-    filename: config.isDev ? './js/bundle.js' : './js/bundle.[chunkhash].js',
+    filename: config.isDev ? './js/[name].js' : './js/[name].[chunkhash].js',
     chunkFilename: config.isDev ? './js/[id].js' : './js/chunk.[chunkhash].js',
   },
   resolve: {
@@ -34,7 +35,7 @@ const webpackConfig = {
         enforce: 'pre',
         exclude: /node_modules/,
         options: {
-          formatter: eslintFormatter,
+          formatter: ESlintFormatter,
         },
       },
       {
@@ -61,8 +62,8 @@ const webpackConfig = {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
-          name: './img/[name].[hash:7].[ext]',
+          limit: 100,
+          name: path.posix.join(config.assetsSubDirectory, './img/[name].[hash:7].[ext]'),
         },
       },
       {
@@ -70,7 +71,7 @@ const webpackConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: './media/[name].[hash:7].[ext]',
+          name: path.posix.join(config.assetsSubDirectory, './media/[name].[hash:7].[ext]'),
         },
       },
       {
@@ -78,7 +79,7 @@ const webpackConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: './fonts/[name].[hash:7].[ext]',
+          name: path.posix.join(config.assetsSubDirectory, './fonts/[name].[hash:7].[ext]'),
         },
       },
     ],

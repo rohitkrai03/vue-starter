@@ -90,7 +90,7 @@ module.exports = {
     // copy custom static assets
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, '../src/assets'),
+        from: path.resolve(__dirname, '../static'),
         to: config.assetsSubDirectory,
         ignore: ['.*'],
       },
