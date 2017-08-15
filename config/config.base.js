@@ -1,13 +1,12 @@
 const API_URL = '//app.example.com/api';
 const API_VERSION = '1.0';
 const BASE_URL = API_URL + '/' + API_VERSION;
-const APP_URL = window.location.origin;
 
-export function getURL(url) {
+exports.getURL = function (url) {
   return BASE_URL + url;
-}
+};
 
-export default {
+module.exports = {
   appName: 'Default App',
   debug: false,
   sessionName: 'session_id',

@@ -1,4 +1,5 @@
-const config = require('./config');
+const path = require('path');
+const config = require('../config');
 const webpack = require('webpack');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -9,94 +10,93 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 module.exports = {
   devtool: '#source-map',
-  output: {
-    path: config.prod.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
-  },
-  modules: {
+  module: {
     rules: [
       {
         test: /\.scss$/i,
-        loader: ExtractTextPlugin.extract({ loader: ['css-loader?importLoaders=1','sass-loader'] })
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          // resolve-url-loader may be chained before sass-loader if necessary
+          use: ['css-loader', 'sass-loader'],
+        }),
       },
       {
         test: /\.css$/i,
-        loader: ExtractTextPlugin.extract({ loader: ['css-loader?importLoaders=1'] })
-      }
-    ]
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader',
+        }),
+      },
+    ],
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       output: {
-        comments: false
+        comments: false,
       },
       debug: false,
       compress: {
         warnings: false,
-        dead_code: true
-      }
+        dead_code: true,
+      },
     }),
     new LodashModuleReplacementPlugin(),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].[contenthash].css')
+      filename: './css/[name].[contenthash].css',
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
-        safe: true
-      }
+        safe: true,
+      },
     }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: config.prod.index,
+      filename: config.index,
       template: 'index.html',
       inject: true,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
-        removeAttributeQuotes: true
+        removeAttributeQuotes: true,
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
+      chunksSortMode: 'dependency',
     }),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: function (module, count) {
+      minChunks(module) {
         // any required modules inside node_modules are extracted to vendor
         return (
-          module.resource &&
-          /\.js$/.test(module.resource) &&
-          module.resource.indexOf(
-            path.join(__dirname, '../node_modules')
-          ) === 0
+          module.resource && /\.js$/.test(module.resource) &&
+          module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0
         );
-      }
+      },
     }),
     // extract webpack runtime and module manifest to its own file in order to
     // prevent vendor hash from being updated whenever app bundle is updated
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
-      chunks: ['vendor']
+      chunks: ['vendor'],
     }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, '../static'),
-        to: config.prod.assetsSubDirectory,
-        ignore: ['.*']
-      }
+        from: path.resolve(__dirname, '../src/assets'),
+        to: config.assetsSubDirectory,
+        ignore: ['.*'],
+      },
     ]),
     new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ]
+      minimize: true,
+    }),
+  ],
 };

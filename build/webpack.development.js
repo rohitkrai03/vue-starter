@@ -1,4 +1,4 @@
-const config = require('./config');
+const config = require('../config');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
@@ -10,9 +10,9 @@ const webpackConfig = {
     noInfo: true,
   },
   performance: {
-    hints: true
+    hints: false
   },
-  modules: {
+  module: {
     rules: [
       {
         test: /\.scss$/,

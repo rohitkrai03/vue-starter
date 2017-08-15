@@ -1,6 +1,6 @@
-var path = require('path');
+const path = require('path');
 
-export default {
+module.exports = {
   appName: 'Prod App',
   index: path.resolve(__dirname, '../dist/index.html'),
   assetsRoot: path.resolve(__dirname, '../dist'),

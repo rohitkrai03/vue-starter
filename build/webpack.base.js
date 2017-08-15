@@ -1,5 +1,6 @@
 const path = require('path');
 const config = require('../config');
+const webpack = require('webpack');
 
 const defaults = {
   __DEV__: JSON.stringify(config.isDev),
@@ -20,7 +21,6 @@ const webpackConfig = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
     }
   },
   plugins: [
@@ -53,7 +53,7 @@ const webpackConfig = {
             'scss': 'vue-style-loader!css-loader!sass-loader',
             'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
           },
-          extractCSS: isProd
+          extractCSS: config.isProd
           // other vue-loader options go here
         }
       },
@@ -62,7 +62,7 @@ const webpackConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: path.posix.join(config.assetsSubDirectory, 'img/[name].[hash:7].[ext]')
+          name: './img/[name].[hash:7].[ext]'
         }
       },
       {
@@ -70,7 +70,7 @@ const webpackConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: path.posix.join(config.assetsSubDirectory, 'media/[name].[hash:7].[ext]')
+          name: './media/[name].[hash:7].[ext]'
         }
       },
       {
@@ -78,7 +78,7 @@ const webpackConfig = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: path.posix.join(config.assetsSubDirectory, 'fonts/[name].[hash:7].[ext]')
+          name: './fonts/[name].[hash:7].[ext]'
         }
       }
     ]
