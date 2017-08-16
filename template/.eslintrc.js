@@ -18,19 +18,12 @@ module.exports = {
   'settings': {
     'import/resolver': {
       'webpack': {
-        'config': 'webpack.config.js'
+        'config': 'build/webpack.base.js'
       }
     }
   },
   // add your custom rules here
   'rules': {
-    "no-underscore-dangle": [
-      0
-    ],
-    "new-cap": [
-      0
-    ],
-    "semi": [2, "always"],
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       'js': 'never',

@@ -11,7 +11,7 @@ const defaults = {
 };
 
 const webpackConfig = {
-  entry: './src/index.js',
+  entry: './src/js/main.js',
   output: {
     path: config.assetsRoot,
     publicPath: config.assetsPublicPath,
