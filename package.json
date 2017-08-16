@@ -16,6 +16,7 @@
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.0",
+    "compression-webpack-plugin": "^1.0.0",
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.4",

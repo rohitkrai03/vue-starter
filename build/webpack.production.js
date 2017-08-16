@@ -8,7 +8,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
-module.exports = {
+const webpackConfig = {
   devtool: '#source-map',
   module: {
     rules: [
@@ -100,3 +100,24 @@ module.exports = {
     }),
   ],
 };
+
+
+if (config.productionGzip) {
+  const CompressionWebpackPlugin = require('compression-webpack-plugin');
+
+  webpackConfig.plugins.push(
+    new CompressionWebpackPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: new RegExp(`\\.(${config.productionGzipExtensions.join('|')})$`),
+      threshold: 10240,
+      minRatio: 0.8,
+    }));
+}
+
+if (config.bundleAnalyzerReport) {
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  webpackConfig.plugins.push(new BundleAnalyzerPlugin());
+}
+
+module.exports = webpackConfig;
