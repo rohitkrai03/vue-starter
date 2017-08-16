@@ -1,52 +1,13 @@
 {
-  "name": "vue-starter",
-  "description": "A Vue.js starter kit that lets you focus on more programming and less configruation.",
-  "version": "1.0.0",
-  "author": "Rohit Rai <rohitkrai03@gmail.com>",
-  "private": true,
+  "name": "vue-cli-template-webpack",
+  "version": "2.0.0",
+  "license": "MIT",
+  "description": "A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
-  },
-  "dependencies": {
-    "vue": "^2.4.2"
+    "docs": "cd docs && gitbook serve",
+    "docs:deploy": "bash ./deploy-docs.sh"
   },
   "devDependencies": {
-    "axios": "^0.16.2",
-    "babel-core": "^6.25.0",
-    "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.1.1",
-    "babel-plugin-component": "^0.10.0",
-    "babel-plugin-lodash": "^3.2.11",
-    "babel-preset-env": "^1.6.0",
-    "compression-webpack-plugin": "^1.0.0",
-    "copy-webpack-plugin": "^4.0.1",
-    "cross-env": "^5.0.5",
-    "css-loader": "^0.28.4",
-    "element-ui": "^1.4.2",
-    "eslint": "^4.4.1",
-    "eslint-config-airbnb-base": "^11.3.1",
-    "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-html": "^3.2.0",
-    "eslint-plugin-import": "^2.7.0",
-    "extract-text-webpack-plugin": "^3.0.0",
-    "file-loader": "^0.11.2",
-    "foundation-sites": "^6.4.2",
-    "friendly-errors-webpack-plugin": "^1.6.1",
-    "html-webpack-plugin": "^2.30.1",
-    "lodash": "^4.17.4",
-    "lodash-webpack-plugin": "^0.11.4",
-    "node-sass": "^4.5.3",
-    "optimize-css-assets-webpack-plugin": "^3.0.0",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.18.2",
-    "url-loader": "^0.5.9",
-    "vue-loader": "^13.0.4",
-    "vue-template-compiler": "^2.4.2",
-    "webpack": "^3.5.4",
-    "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dev-server": "^2.7.1",
-    "webpack-merge": "^4.1.0"
+    "vue-cli": "^2.8.1"
   }
 }
