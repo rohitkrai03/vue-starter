@@ -2,7 +2,6 @@ const path = require('path');
 const config = require('../config');
 const webpack = require('webpack');
 const ESlintFormatter = require('eslint-friendly-formatter');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const defaults = {
   __DEV__: JSON.stringify(config.isDev),
@@ -27,9 +26,6 @@ const webpackConfig = {
   },
   plugins: [
     new webpack.DefinePlugin(defaults),
-    new ExtractTextPlugin({
-      filename: './css/[name].[contenthash].css',
-    }),
   ],
   module: {
     rules: [
@@ -51,21 +47,7 @@ const webpackConfig = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: {
-            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-            // the "scss" and "sass" values for the lang attribute to the right configs here.
-            // other preprocessors should work out of the box, no loader config like this necessary.
-            css: ExtractTextPlugin.extract({
-              fallback: 'vue-style-loader',
-              use: 'css-loader',
-            }),
-            scss: ExtractTextPlugin.extract({
-              fallback: 'vue-style-loader',
-              // resolve-url-loader may be chained before sass-loader if necessary
-              use: ['css-loader', 'sass-loader'],
-            }),
-          },
-          // other vue-loader options go here
+          extractCSS: config.isProd,
         },
       },
       {

@@ -1,4 +1,3 @@
-const config = require('../config');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
@@ -10,19 +9,19 @@ const webpackConfig = {
     noInfo: true,
   },
   performance: {
-    hints: false
+    hints: false,
   },
   module: {
     rules: [
       {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader']
-      }
-    ]
+        loaders: ['style-loader', 'css-loader'],
+      },
+    ],
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
@@ -30,10 +29,10 @@ const webpackConfig = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      inject: true
+      inject: true,
     }),
-    new FriendlyErrorsPlugin()
-  ]
+    new FriendlyErrorsPlugin(),
+  ],
 };
 
 module.exports = webpackConfig;
