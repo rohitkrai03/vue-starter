@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 
-module.exports = new Vue({
+export default new Vue({
   el: '#app',
   template: '<App></App>',
   components: {
