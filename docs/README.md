@@ -1,8 +1,15 @@
 # Introduction
 
+> A Vue.js starter kit that lets you focus on more programming and less configruation.
+
+> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
+
+> This template is Vue 2.0 compatible.
+
 This boilerplate is targeted towards large, serious projects and assumes you are somewhat familiar with Webpack and `vue-loader`. Make sure to also read [`vue-loader`'s documentation](http://vuejs.github.io/vue-loader/index.html) for common workflow recipes.
 
 If you just want to try out `vue-loader` or whip out a quick prototype, use the [webpack-simple](https://github.com/vuejs-templates/webpack-simple) template instead.
+
 
 ## Quickstart
 
