@@ -1,45 +1,63 @@
 # Project Structure
 
-``` bash
+```bash
 .
-├── build/                      # webpack config files
-│   └── ...
-├── config/
-│   ├── index.js                # main project config
-│   └── ...
-├── src/
-│   ├── main.js                 # app entry file
-│   ├── App.vue                 # main app component
-│   ├── components/             # ui components
-│   │   └── ...
-│   └── assets/                 # module assets (processed by webpack)
-│       └── ...
-├── static/                     # pure static assets (directly copied)
-├── test/
-│   └── unit/                   # unit tests
-│   │   ├── specs/              # test spec files
-│   │   ├── index.js            # test build entry file
-│   │   └── karma.conf.js       # test runner config file
-│   └── e2e/                    # e2e tests
-│   │   ├── specs/              # test spec files
-│   │   ├── custom-assertions/  # custom assertions for e2e tests
-│   │   ├── runner.js           # test runner script
-│   │   └── nightwatch.conf.js  # test runner config file
-├── .babelrc                    # babel config
-├── .postcssrc.js               # postcss config
-├── .eslintrc.js                # eslint config
-├── .editorconfig               # editor config
-├── index.html                  # index.html template
-└── package.json                # build scripts and dependencies
+├── build                           # webpack config files
+│   ├── webpack.base.js
+│   ├── webpack.development.js
+│   ├── webpack.production.js
+│   └── webpack.testing.js
+├── config                          # main project config
+│   ├── config.app.js
+│   ├── config.base.js
+│   ├── config.development.js
+│   ├── config.production.js
+│   └── index.js
+├── dist
+├── src
+│   ├── assets                      # module assets (processed by webpack)
+│   │   └── logo.png
+│   ├── js
+│   │   ├── components              # ui components
+│   │   │   └── Hello.vue
+│   │   ├── router
+│   │   │   └── index.js
+│   │   ├── utils
+│   │   │   └── .gitkeep
+│   │   ├── views
+│   │   │   └── .gitkeep
+│   │   ├── App.vue                 # main app component
+│   │   └── main.js                 # app entry file
+│   └── scss
+│       └── style.scss
+├── static                          # pure static assets (directly copied)
+│   └── .gitkeep
+├── test
+│   └── unit                        # unit tests
+│       ├── specs
+│       │   └── Hello.spec.js       # test spec files
+│       ├── .eslintrc
+│       ├── index.js                # test build entry file
+│       └── karma.conf.js           # test runner config file
+├── .babelrc                        # babel config
+├── .editorconfig                   # editor config
+├── .eslintignore                   # config for ignored files and dirs for eslint
+├── .eslintrc.js                    # eslint config
+├── .gitignore
+├── README.md
+├── index.html                      # index.html template
+├── package.json                    # build scripts and dependencies
+└── webpack.config.js               # webpack config entry point
 ```
+
 
 ### `build/`
 
-This directory holds the actual configurations for both the development server and the production webpack build. Normally you don't need to touch these files unless you want to customize Webpack loaders, in which case you should probably look at `build/webpack.base.conf.js`.
+This directory holds the actual configurations for both the development server and the production webpack build. Normally you don't need to touch these files unless you want to customize Webpack loaders, in which case you should probably look at `build/webpack.base.js`.
 
 ### `config/index.js`
 
-This is the main configuration file that exposes some of the most common configuration options for the build setup. See [API Proxying During Development](proxy.md) and [Integrating with Backend Framework](backend.md) for more details.
+This is the main configuration file that exposes some of the most common configuration options for the build setup. It merges three different config files to give a unified configuration management based on the environaments (dev or prod) and app modes (different app instances can have different configurations.).
 
 ### `src/`
 
@@ -54,10 +72,6 @@ See [Handling Static Assets](static.md) for more details.
 ### `test/unit`
 
 Contains unit test related files. See [Unit Testing](unit.md) for more details.
-
-### `test/e2e`
-
-Contains e2e test related files. See [End-to-end Testing](e2e.md) for more details.
 
 ### `index.html`
 
