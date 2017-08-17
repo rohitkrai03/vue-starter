@@ -1,8 +1,8 @@
 // This is the webpack config used for unit tests.
 
-const webpack = require("webpack");
-const merge = require("webpack-merge");
-const baseConfig = require("./webpack.base");
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.base');
 
 const webpackConfig = merge(baseConfig, {
   // use inline sourcemap for karma-sourcemap-loader
