@@ -54,11 +54,6 @@ module.exports = {
       "message": "Pick an ESLint preset",
       "choices": [
         {
-          "name": "Standard (https://github.com/feross/standard)",
-          "value": "standard",
-          "short": "Standard"
-        },
-        {
           "name": "Airbnb (https://github.com/airbnb/javascript)",
           "value": "airbnb",
           "short": "Airbnb"
@@ -74,18 +69,42 @@ module.exports = {
       "type": "confirm",
       "message": "Setup unit tests with Karma + Mocha?"
     },
-    "e2e": {
+    "lodash": {
       "type": "confirm",
-      "message": "Setup e2e tests with Nightwatch?"
+      "message": "Install lodash into the project?"
+    },
+    "axios": {
+      "type": "confirm",
+      "message": "Install axios into the project?"
+    },
+    "ui": {
+      "type": "confirm",
+      "message": "Use a UI library to help with basic styles and components?"
+    },
+    "uiLibrary": {
+      "when": "ui",
+      "type": "list",
+      "message": "Pick a UI Library",
+      "choices": [
+        {
+          "name": "Element - A Vue based component library (http://element.eleme.io/#/en-US)",
+          "value": "element",
+          "short": "Element"
+        },
+        {
+          "name": "Foundation - Responsive front-end framework (http://foundation.zurb.com/)",
+          "value": "foundation",
+          "short": "Foundation"
+        }
+      ]
+
     }
   },
   "filters": {
     ".eslintrc.js": "lint",
     ".eslintignore": "lint",
-    "config/test.env.js": "unit || e2e",
     "test/unit/**/*": "unit",
-    "build/webpack.test.conf.js": "unit",
-    "test/e2e/**/*": "e2e",
+    "build/webpack.testing.js": "unit",
     "src/router/**/*": "router"
   },
   "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"

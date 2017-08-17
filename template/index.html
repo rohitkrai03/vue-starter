@@ -2,10 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>vue-starter</title>
+    <title>{{ name }}</title>
+    {{#ui}}
+    {{#if_eq uiLibrary "foundation"}}
     <link rel="stylesheet" type="text/css" href="/node_modules/foundation-sites/dist/css/foundation.min.css">
+    {{/if_eq}}
+    {{/ui}}
   </head>
   <body>
     <div id="app"></div>
+    <!-- built files will be auto injected -->
   </body>
 </html>

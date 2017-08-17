@@ -1,14 +1,18 @@
 {
   "presets": [
     ["env", { "modules": false }]
-  ], 
+  ],
   "plugins": [
+    {{#lodash}}
     "lodash",
+    {{/lodash}}
+    {{#if_eq uiLibrary "element"}}
     ["component", [
       {
         "libraryName": "element-ui",
         "styleLibraryName": "theme-default"
       }
     ]]
+    {{/if_eq}}
   ]
 }

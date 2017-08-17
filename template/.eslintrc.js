@@ -9,11 +9,14 @@ module.exports = {
   env: {
     browser: true,
   },
+  {{#if_eq lintConfig "airbnb"}}
   extends: 'airbnb-base',
+  {{/if_eq}}
   // required to lint *.vue files
   plugins: [
     'html'
   ],
+  {{#if_eq lintConfig "airbnb"}}
   // check if imports actually resolve
   'settings': {
     'import/resolver': {
@@ -22,8 +25,10 @@ module.exports = {
       }
     }
   },
+  {{/if_eq}}
   // add your custom rules here
   'rules': {
+    {{#if_eq lintConfig "airbnb"}}
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       'js': 'never',
@@ -33,6 +38,7 @@ module.exports = {
     'import/no-extraneous-dependencies': ['error', {
       'optionalDependencies': ['test/unit/index.js']
     }],
+    {{/if_eq}}
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   },
