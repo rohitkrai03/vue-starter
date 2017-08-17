@@ -50,10 +50,10 @@
     "file-loader": "^0.11.2",
     {{#ui}}
     {{#if_eq uiLibrary "foundation"}}
-    "element-ui": "^1.4.2",
+    "foundation-sites": "^6.4.2",
     {{/if_eq}}
     {{#if_eq uiLibrary "element"}}
-    "foundation-sites": "^6.4.2",
+    "element-ui": "^1.4.2",
     "babel-plugin-component": "^0.10.0",
     {{/if_eq}}
     {{/ui}}
