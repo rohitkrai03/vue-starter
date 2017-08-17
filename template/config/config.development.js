@@ -1,4 +1,9 @@
 const path = require('path');
+const API_URL = '//localhost:7000/api';
+const API_VERSION = '1.0';
+const BASE_URL = `${API_URL}/${API_VERSION}`;
+
+exports.getURL = url => BASE_URL + url;
 
 module.exports = {
   appName: 'Dev App',

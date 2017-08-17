@@ -8,10 +8,10 @@
 │   ├── webpack.production.js
 │   └── webpack.testing.js
 ├── config                          # main project config
-│   ├── config.app.js
-│   ├── config.base.js
-│   ├── config.development.js
-│   ├── config.production.js
+│   ├── config.app.js               # contains app specific values. {app} can be any name eg - scroll, st
+│   ├── config.base.js              # contains default values
+│   ├── config.development.js       # contains values used in dev environment
+│   ├── config.production.js        # conatins values used in prod environment
 │   └── index.js
 ├── dist
 ├── src
@@ -57,7 +57,12 @@ This directory holds the actual configurations for both the development server a
 
 ### `config/index.js`
 
-This is the main configuration file that exposes some of the most common configuration options for the build setup. It merges three different config files to give a unified configuration management based on the environaments (dev or prod) and app modes (different app instances can have different configurations.).
+This is the main configuration file that exposes some of the most common configuration options for the build setup. It merges three different config files to give a unified configuration management based on the environaments and app modes.
+
+- baseConfig (`config.base.js`)
+- envConfig (`config.${env}.js` based on the environment (dev, prod) the app is running)
+- appConfig (`config.${appMode}.js` based on the appMode. This file can be renamed as per your app name like `config.scroll.js` or added a new file for `config.satyagrah.js`)
+
 
 ### `src/`
 

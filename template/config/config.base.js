@@ -9,4 +9,5 @@ module.exports = {
   debug: false,
   sessionName: 'session_id',
   credential: 'same-origin',
+  exampleAPI: exports.getURL('/thing/')
 };

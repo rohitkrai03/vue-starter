@@ -1,4 +1,9 @@
 const path = require('path');
+const API_URL = '//app.production.com/api';
+const API_VERSION = '2.0';
+const BASE_URL = `${API_URL}/${API_VERSION}`;
+
+exports.getURL = url => BASE_URL + url;
 
 module.exports = {
   appName: 'Prod App',

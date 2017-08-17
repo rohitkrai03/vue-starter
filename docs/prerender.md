@@ -10,14 +10,14 @@ If you want to prerender routes that will not significantly change once pushed t
 npm install --save-dev prerender-spa-plugin
 ```
 
-2. Require it in **build/webpack.prod.conf.js**:
+2. Require it in **build/webpack.production.js**:
 
 ```js
 // This line should go at the top of the file where other 'imports' live in
-var PrerenderSpaPlugin = require('prerender-spa-plugin')
+var PrerenderSpaPlugin = require('prerender-spa-plugin');
 ```
 
-3. Configure it in the `plugins` array (also in **build/webpack.prod.conf.js**):
+3. Configure it in the `plugins` array (also in **build/webpack.production.js**):
 
 ```js
 new PrerenderSpaPlugin(

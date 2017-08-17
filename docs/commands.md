@@ -4,7 +4,7 @@ All build commands are executed via [NPM Scripts](https://docs.npmjs.com/misc/sc
 
 ### `npm run dev`
 
-> Starts a Node.js local development server. See [API Proxying During Development](proxy.md) for more details.
+> Starts a Node.js local development server.
 
 - Webpack + `vue-loader` for single file Vue components.
 - State preserving hot-reload
@@ -29,11 +29,6 @@ All build commands are executed via [NPM Scripts](https://docs.npmjs.com/misc/sc
 - Supports all webpack loaders.
 - Easy [mock injection](http://vuejs.github.io/vue-loader/en/workflow/testing-with-mocks.html).
 
-### `npm run e2e`
+### `npm run lint`
 
-> Run end-to-end tests with [Nightwatch](http://nightwatchjs.org/). See [End-to-end Testing](e2e.md) for more details.
-
-- Run tests in multiple browsers in parallel.
-- Works with one command out of the box:
-  - Selenium and chromedriver dependencies automatically handled.
-  - Automatically spawns the Selenium server.
+> Run eslint for all the given js files in your src folder and show the result.
