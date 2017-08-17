@@ -15,6 +15,8 @@ We could always use the in built templates that come with vue-cli, but somehow I
 
 This is why this project came to life. With certain decisions already made to make life easier for programmers and certain feature built in right out of the box.
 
+This project started as a webpack-simple template with incremental addition of features and configs to suit the needs of a medium to large vue.js project. It is inspired by the webpack template but without all the complexity.
+
 
 ## Documentation
 
