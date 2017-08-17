@@ -1,7 +1,9 @@
 const path = require('path');
 const config = require('../config');
 const webpack = require('webpack');
+{{#lint}}
 const ESlintFormatter = require('eslint-friendly-formatter');
+{{/lint}}
 
 const defaults = {
   __DEV__: JSON.stringify(config.isDev),
@@ -31,6 +33,7 @@ const webpackConfig = {
   ],
   module: {
     rules: [
+      {{#lint}}
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
@@ -40,6 +43,7 @@ const webpackConfig = {
           formatter: ESlintFormatter,
         },
       },
+      {{/lint}}
       {
         test: /\.js$/,
         loader: 'babel-loader',
