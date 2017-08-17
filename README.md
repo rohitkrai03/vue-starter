@@ -1,4 +1,4 @@
-# vue-starter - 
+# vue-starter
 
 > A Vue.js starter kit that lets you focus on more programming and less configruation.
 
@@ -6,9 +6,19 @@
 
 > This template is Vue 2.0 compatible.
 
+
+## Why? 
+
+At [Scroll.in](https://scroll.in), we have chosen Vue.js as our primary JS framework. So, while working on various Vue.js projects we felt like we needed a template for all our projects which can be used for better consistency and coding style across developers.
+
+We could always use the in built templates that come with vue-cli, but somehow I felt [webpack-simple](https://github.com/vuejs-templates/webpack-simple) was too simple and lacked certain necessary features to be opted as a standard boilerplate for our projects. On the other hand, [webpack](https://github.com/vuejs-templates/webpack-simple) seemed too complex to understand what's going on inside it specially for a junior dev it would be nightmare to make some config changes to it.
+
+This is why this project came to life. With certain decisions already made to make life easier for programmers and certain feature built in right out of the box.
+
+
 ## Documentation
 
-- [For this template](http://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail
+- [For this template](http://arkpod.in/vue-starter): common questions specific to this template are answered and each part is described in greater detail
 - [For Vue 2.0](http://vuejs.org/guide/): general information about how to work with Vue, not specific to this template
 
 ## Usage
@@ -43,6 +53,21 @@ $ npm run dev
   - Supports ES2015+ in test files.
   - Supports all webpack loaders.
   - Easy mock injection.
+
+- This boilerplate uses [ESLint](http://eslint.org/) as the linter, and uses the [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb) preset with some small customizations.
+
+- Option to install and setup [vue-router](https://github.com/vuejs/vue-router)
+
+- Utilities like `lodash` and `axios` come installed out of the box. You can opt out while installing template from vue-cli as well. Also, webpack will be configured accordingly to make use of only the modules that are used and not the whole library to reduce bundle size.
+
+- An option to install a UI Library
+  - [Element](http://element.eleme.io/#/en-US) A Vue 2.0 based component library for developers, designers and product managers. Also, configured to use only the required modules and components in the final bundle.
+  - [Foundation](http://foundation.zurb.com/) A responsive front-end framework. Imported minified css file in index.html. Js file can be imported as per the need as well.
+
+- A converge like config management system which merges different config files based on environment and app mode.
+
+- A well defined folder structure for medium to large Vue.js projects.
+
 
 ### Fork It And Make Your Own
 
