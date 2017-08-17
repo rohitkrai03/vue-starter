@@ -15,7 +15,7 @@ import Hello from './components/Hello';
 {{/unless}}
 export default {
   name: 'app',{{#router}}
-  {{else}},
+  {{else}}
   components: {
     Hello,
   },{{/router}}

@@ -6,20 +6,14 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --display-error-details",
-    {{#unit}}
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"{{#unit}},
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-    "test": "npm run unit",
-    {{/unit}}
-    {{#lint}}
-    "lint": "eslint --ext .js,.vue src test/unit/specs"
-    {{/lint}}
+    "test": "npm run unit"{{/unit}}{{#lint}},
+    "lint": "eslint --ext .js,.vue src test/unit/specs"{{/lint}}
   },
   "dependencies": {
-    "vue": "^2.4.2",
-    {{#router}}
-    "vue-router": "^2.7.0"
-    {{/router}}
+    "vue": "^2.4.2"{{#router}},
+    "vue-router": "^2.7.0"{{/router}}
   },
   "devDependencies": {
     {{#axios}}
