@@ -19,8 +19,7 @@ export default {
   {{else}},
   components: {
     Hello,
-  },
-  {{/router}}
+  },{{/router}}
 };
 </script>
 
