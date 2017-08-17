@@ -1,8 +1,10 @@
-# vue-webpack-boilerplate
+# vue-starter - 
+
+> A Vue.js starter kit that lets you focus on more programming and less configruation.
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
 
-> This template is Vue 2.0 compatible. For Vue 1.x use this command: `vue init webpack#1.0 my-project`
+> This template is Vue 2.0 compatible.
 
 ## Documentation
 
@@ -15,13 +17,11 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
+$ vue init rohitkrai03/vue-starter my-project
 $ cd my-project
 $ npm install
 $ npm run dev
 ```
-
-If port 8080 is already in use on your machine you must change the port number in `/config/index.js`. Otherwise `npm run dev` will fail.
 
 ## What's Included
 
@@ -43,12 +43,6 @@ If port 8080 is already in use on your machine you must change the port number i
   - Supports ES2015+ in test files.
   - Supports all webpack loaders.
   - Easy mock injection.
-
-- `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).
-  - Run tests in multiple browsers in parallel.
-  - Works with one command out of the box:
-    - Selenium and chromedriver dependencies automatically handled.
-    - Automatically spawns the Selenium server.
 
 ### Fork It And Make Your Own
 
