@@ -61,7 +61,7 @@ This is the main configuration file that exposes some of the most common configu
 
 - baseConfig (`config.base.js`)
 - envConfig (`config.${env}.js` based on the environment (dev, prod) the app is running)
-- appConfig (`config.${appMode}.js` based on the appMode. This file can be renamed as per your app name like `config.scroll.js` or added a new file for `config.satyagrah.js`)
+- appConfig (`config.${appMode}.js` based on the appMode. This file can be renamed as per your app name like `config.app1.js` or added a new file for `config.app2.js`)
 
 
 ### `src/`
