@@ -1,6 +1,6 @@
 # vue-starter
 
-> A Vue.js starter kit that lets you focus on more programming and less configruation.
+> A Vue.js starter kit that lets you focus on more programming and less configuration.
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
 
