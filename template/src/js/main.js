@@ -4,7 +4,7 @@
 {{/if_eq}}
 import Vue from 'vue';
 {{#if_eq uiLibrary "element"}}
-import 'element-ui/lib/theme-chalk/index.css'
+import 'element-ui/lib/theme-chalk/index.css';
 {{/if_eq}}
 import App from './App';
 {{#router}}
